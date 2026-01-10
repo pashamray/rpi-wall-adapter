@@ -13,7 +13,7 @@ plate_rounding = 5;
 
 ear_thickness = plate_thickness;
 ear_length = 10;
-ear_width = 8;
+ear_width = 10;
 ear_offset = 30;
 ear_hole = 3;
 
@@ -22,7 +22,7 @@ module ear() {
         cuboid([ear_width, ear_thickness, ear_length], rounding = -ear_width / 2, edges = [BOT + RIGHT, BOT + LEFT]) {
                 attach(BACK, BOTTOM)
                     back(ear_length / 2 - ear_width / 2)
-                        cylinder(h=2, r=ear_width / 2);
+                        cyl(l=2, r=ear_width / 2 - 1, rounding1=-1, rounding2=1, $fa=1, $fs=0.3);
                 attach(BACK, CENTER)
                     back(ear_length / 2 - ear_width / 2)
                         tag("ear_remove") cylinder(h=20, r=ear_hole / 2);

@@ -6,12 +6,12 @@ include <NopSCADlib/vitamins/pcbs.scad>
 
 pcb_thickness = pcb_thickness(RPI4);
 
-plate_thickness = pcb_thickness(RPI4);
+plate_thickness = 2;
 plate_length = 90;
 plate_width = 60;
 plate_rounding = 5;
 
-ear_thickness = pcb_thickness(RPI4);
+ear_thickness = plate_thickness;
 ear_length = 10;
 ear_width = 8;
 ear_offset = 30;
@@ -20,9 +20,13 @@ ear_hole = 3;
 module ear() {
     diff("ear_remove", "ear_keep") 
         cuboid([ear_width, ear_thickness, ear_length], rounding = -ear_width / 2, edges = [BOT + RIGHT, BOT + LEFT]) {
-            tag("ear_remove") attach(FRONT, CENTER) 
-                back(ear_length / 2 - ear_width / 2)
-                    cylinder(h=5, r=ear_hole / 2);
+                attach(BACK, BOTTOM)
+                    back(ear_length / 2 - ear_width / 2)
+                        cylinder(h=2, r=ear_width / 2);
+                attach(BACK, CENTER)
+                    back(ear_length / 2 - ear_width / 2)
+                        tag("ear_remove") cylinder(h=20, r=ear_hole / 2);
+           
             tag("ear_remove") edge_profile([TOP + LEFT, TOP + RIGHT]) 
                 mask2d_roundover(r=ear_width / 2);
         }
@@ -50,10 +54,10 @@ module plate() {
 
 
 
-difference() {
+diff("finish_remove") {
     plate();
     pcb_screw_positions(RPI4) {
-        translate_z(plate_thickness)
-            screw(M2p5_dome_screw, 10);
+        translate_z(-5)
+            tag("finish_remove") cylinder(h=10, r=1.3);
     }
 }

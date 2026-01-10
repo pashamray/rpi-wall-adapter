@@ -2,8 +2,8 @@
 
 ## Dependencies
 
-https://github.com/BelfrySCAD/BOSL2
-https://github.com/nophead/NopSCADlib
+- https://github.com/BelfrySCAD/BOSL2
+- https://github.com/nophead/NopSCADlib
 
 ### Model
 ![model](img/model.png)

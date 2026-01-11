@@ -13,14 +13,14 @@ ear_thickness = plate_thickness;
 ear_length = 10;
 ear_width = 10;
 ear_offset = 30;
-ear_hole = 3;
+ear_hole = 4;
 
 module ear() {
     diff("ear_remove", "ear_keep") 
         cuboid([ear_width, ear_thickness, ear_length], rounding = -ear_width / 2, edges = [BOT + RIGHT, BOT + LEFT]) {
                 attach(BACK, BOTTOM)
                     back(ear_length / 2 - ear_width / 2)
-                        cyl(l=2, r=ear_width / 2 - 1, rounding1=-1, rounding2=1, $fa=1, $fs=0.3);
+                        cyl(l=4, r=ear_width / 2 - 1, rounding1=-1, rounding2=1, $fa=1, $fs=0.3);
                 attach(BACK, CENTER)
                     back(ear_length / 2 - ear_width / 2)
                         tag("ear_remove") cylinder(h=20, r=ear_hole / 2);
@@ -56,6 +56,6 @@ diff("finish_remove") {
     plate();
     pcb_screw_positions(RPI4) {
         translate_z(-5)
-            tag("finish_remove") cylinder(h=10, r=1.3);
+            tag("finish_remove") cylinder(h=10, r=1.4);
     }
 }

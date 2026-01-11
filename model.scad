@@ -4,8 +4,6 @@ include <BOSL2/walls.scad>
 include <NopSCADlib/core.scad>
 include <NopSCADlib/vitamins/pcbs.scad>
 
-pcb_thickness = pcb_thickness(RPI4);
-
 plate_thickness = 2;
 plate_length = 90;
 plate_width = 60;

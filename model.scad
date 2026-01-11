@@ -10,10 +10,10 @@ plate_width = 60;
 plate_rounding = 5;
 
 ear_thickness = plate_thickness;
-ear_length = 10;
-ear_width = 10;
-ear_offset = 30;
-ear_hole = 4;
+ear_length = 15;
+ear_width = 15;
+ear_offset = 25;
+ear_hole = 5;
 
 module ear() {
     diff("ear_remove", "ear_keep") 
@@ -56,6 +56,6 @@ diff("finish_remove") {
     plate();
     pcb_screw_positions(RPI4) {
         translate_z(-5)
-            tag("finish_remove") cylinder(h=10, r=1.4);
+            tag("finish_remove") cylinder(h=10, r=1.5);
     }
 }

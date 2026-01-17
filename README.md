@@ -8,5 +8,20 @@
 - https://github.com/nophead/NopSCADlib
 
 ### Model
+
+OpenSCAD
+
 ![model](img/model.png)
 
+printed
+
+![printed](img/printed.jpg)
+
+### Install
+![on rpi bottom](img/installed_to_rpi.jpg)
+
+![on rpi top](img/common_view.jpg)
+
+
+
+![on the wall](img/rpi_on_the_wall.jpg)
